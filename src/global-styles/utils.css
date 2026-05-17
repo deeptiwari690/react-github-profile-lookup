@@ -1,0 +1,142 @@
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  clip-path: inset(50%) !important;
+}
+
+.shrink-0 {
+  flex-shrink: 0;
+}
+
+.icon-stroke {
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon-fill {
+  stroke: none;
+  fill: currentcolor;
+}
+
+.icon-sm {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.icon-md {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+
+.icon-lg {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--clr-text-links);
+  transition: opacity 0.15s ease-out;
+}
+
+.link:active {
+  opacity: 0.6;
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--clr-outline);
+  outline-offset: 3px;
+  border-radius: 0.5rem;
+}
+
+@media (any-hover: hover) {
+  .link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--clr-text-links);
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0%;
+  }
+
+  to {
+    background-position: -200% 0%;
+  }
+}
+
+.shimmer {
+  background-image: linear-gradient(
+    90deg,
+    var(--clr-skeleton) 25%,
+    var(--clr-skeleton-highlight) 50%,
+    var(--clr-skeleton) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.shimmer-muted {
+  background-image: linear-gradient(
+    90deg,
+    var(--clr-skeleton-muted) 25%,
+    var(--clr-skeleton-highlight) 50%,
+    var(--clr-skeleton-muted) 75%
+  );
+}
+
+.btn {
+  background-color: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 1rem;
+  color: var(--clr-text);
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color 0.3s ease-out,
+    transform 0.1s ease-out;
+}
+
+@media (any-hover: hover) {
+  .btn:hover {
+    background-color: var(--clr-surface-hov);
+  }
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--clr-outline);
+  outline-offset: 3px;
+  background-color: var(--clr-surface-hov);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn:disabled {
+  background-color: var(--clr-surface-inert);
+  color: var(--clr-text-inert);
+}

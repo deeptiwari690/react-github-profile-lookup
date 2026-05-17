@@ -1,0 +1,27 @@
+.lookup-form {
+  z-index: 1;
+}
+
+.lookup-form__controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.lookup-form__input {
+  background-color: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+  outline: none;
+  padding-inline-start: 1rem;
+  min-width: 0;
+  flex-grow: 1;
+}
+
+.lookup-form__error {
+  color: var(--clr-text-error);
+  font-size: 0.875rem;
+}
+
+.lookup-form__error:not(:empty) {
+  margin-block-start: 0.5rem;
+}
