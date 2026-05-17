@@ -120,7 +120,7 @@
     transform 0.1s ease-out;
 }
 
-@media (any-hover: hover) {
+@media (any-hover: hover) {now2 
   .btn:hover {
     background-color: var(--clr-surface-hov);
   }
