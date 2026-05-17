@@ -51,7 +51,7 @@ function ProfileCardError({ fetchErrorMessage }: { fetchErrorMessage: string }) 
     <div className="profile-card__error-outer">
       <div className="profile-card__error-inner">
         <svg className="profile-card__error-icon icon-md icon-stroke" aria-hidden="true">
-          <use href="/icons.svg#icon-error" />
+          <use href="./icons.svg#icon-error" />
         </svg>
         <p className="profile-card__error">{fetchErrorMessage}</p>
       </div>
@@ -76,7 +76,7 @@ function ProfileCardSuccess({ userData }: { userData: GitHubUser }) {
           <li className="profile-card__stat">
             <div className="profile-card__stat-value-group">
               <svg className="profile-card__stat-icon icon-md icon-fill" aria-hidden="true">
-                <use href="/icons.svg#icon-repo" />
+                <use href="./icons.svg#icon-repo" />
               </svg>
               <span className="profile-card__stat-value">{userData.public_repos}</span>
             </div>
@@ -85,7 +85,7 @@ function ProfileCardSuccess({ userData }: { userData: GitHubUser }) {
           <li className="profile-card__stat">
             <div className="profile-card__stat-value-group">
               <svg className="profile-card__stat-icon icon-md icon-fill" aria-hidden="true">
-                <use href="/icons.svg#icon-follower" />
+                <use href="./icons.svg#icon-follower" />
               </svg>
               <span className="profile-card__stat-value">{userData.followers}</span>
             </div>
@@ -94,7 +94,7 @@ function ProfileCardSuccess({ userData }: { userData: GitHubUser }) {
           <li className="profile-card__stat">
             <div className="profile-card__stat-value-group">
               <svg className="profile-card__stat-icon icon-md icon-fill" aria-hidden="true">
-                <use href="/icons.svg#icon-following" />
+                <use href="./icons.svg#icon-following" />
               </svg>
               <span className="profile-card__stat-value">{userData.following}</span>
             </div>

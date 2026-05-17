@@ -70,7 +70,7 @@ export function App() {
     <div className="page-layout">
       <header className="header">
         <svg className="header__icon icon-lg icon-stroke" aria-hidden="true">
-          <use href="/icons.svg#icon-github" />
+          <use href="./icons.svg#icon-github" />
         </svg>
         <h1 className="header__heading">React GitHub Profile Lookup</h1>
       </header>
