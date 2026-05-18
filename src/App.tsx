@@ -72,7 +72,7 @@ export function App() {
         <svg className="header__icon icon-lg icon-stroke" aria-hidden="true">
           <use href="./icons.svg#icon-github" />
         </svg>
-        <h1 className="header__heading">React GitHub Profile Lookup</h1>
+        <h1 className="header__heading">GitHub Profile Lookup</h1>
       </header>
       <LookupForm onLookup={handleLookup} onInputChange={handleInputChange} />
       <p className="sr-only" role="alert">
