@@ -1,5 +1,7 @@
 # GitHub Profile Lookup — React + TypeScript
 
+[View live →](https://deeptiwari690.github.io/react-github-profile-lookup/)
+
 A rebuild of the vanilla TS GitHub Profile Lookup project, now in React.
 
 ---
