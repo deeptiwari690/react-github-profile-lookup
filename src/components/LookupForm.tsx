@@ -2,7 +2,7 @@ import { useState, type ChangeEvent, type SubmitEvent } from "react";
 import { validateGithubUsername } from "../utils/validate-github-username";
 import "./LookupForm.css";
 
-type LookupFormProps = {
+type Props = {
   onLookup: (username: string) => void;
   onInputChange: () => void;
 };
