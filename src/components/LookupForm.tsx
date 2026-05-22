@@ -7,7 +7,7 @@ type Props = {
   onInputChange: () => void;
 };
 
-export function LookupForm({ onLookup, onInputChange }: LookupFormProps) {
+export function LookupForm({ onLookup, onInputChange }: Props) {
   const [username, setUsername] = useState("");
   const [validationErrorMessage, setValidationErrorMessage] = useState<string | null>(null);
   const [hasValidationError, setHasValidationError] = useState(false);
