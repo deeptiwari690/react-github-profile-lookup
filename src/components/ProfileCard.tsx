@@ -1,13 +1,12 @@
 import type { GitHubUser } from "../types";
-import "./ProfileCard.css";
 
-interface Props {
-  status: "idle" | "loading" | "success" | "error";
+type Props = {
   userData: GitHubUser | null;
   fetchErrorMessage: string | null;
+  status: "idle" | "loading" | "success" | "error";
   isCardVisible: boolean;
   onTransitionEnd: () => void;
-}
+};
 
 function ProfileCardLoading() {
   return (
@@ -109,17 +108,13 @@ function ProfileCardSuccess({ userData }: { userData: GitHubUser }) {
   );
 }
 
-export function ProfileCard(props: Props) {
-  if (props.status === "idle") return null;
-
+export function ProfileCard({ userData, fetchErrorMessage, status, isCardVisible, onTransitionEnd }: Props) {
+  if (status === "idle") return null;
   return (
-    <div
-      className={`profile-card ${props.isCardVisible ? "profile-card--visible" : ""}`}
-      onTransitionEnd={props.onTransitionEnd}
-    >
-      {props.status === "loading" && <ProfileCardLoading />}
-      {props.status === "error" && <ProfileCardError fetchErrorMessage={props.fetchErrorMessage!} />}
-      {props.status === "success" && <ProfileCardSuccess userData={props.userData!} />}
+    <div className={`profile-card${isCardVisible ? " profile-card--visible" : ""}`} onTransitionEnd={onTransitionEnd}>
+      {status === "loading" && <ProfileCardLoading />}
+      {status === "error" && <ProfileCardError fetchErrorMessage={fetchErrorMessage!} />}
+      {status === "success" && <ProfileCardSuccess userData={userData!} />}
     </div>
   );
 }
