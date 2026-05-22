@@ -1,18 +1,18 @@
-import { useState } from "react";
+import { useState, type ChangeEvent, type SubmitEvent } from "react";
 import { validateGithubUsername } from "../utils/validate-github-username";
-import "./lookupForm.css";
+import "./LookupForm.css";
 
-interface Props {
+type LookupFormProps = {
   onLookup: (username: string) => void;
   onInputChange: () => void;
-}
+};
 
-export function LookupForm({ onLookup, onInputChange }: Props) {
+export function LookupForm({ onLookup, onInputChange }: LookupFormProps) {
   const [username, setUsername] = useState("");
   const [validationErrorMessage, setValidationErrorMessage] = useState<string | null>(null);
   const [hasValidationError, setHasValidationError] = useState(false);
 
-  function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
+  function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
     const error = validateGithubUsername(username);
     if (error) {
@@ -20,18 +20,17 @@ export function LookupForm({ onLookup, onInputChange }: Props) {
       setHasValidationError(true);
       return;
     }
-    setValidationErrorMessage(null);
     setHasValidationError(false);
     onLookup(username);
   }
 
-  function handleInput(event: React.ChangeEvent<HTMLInputElement>) {
-    const newValue = event.target.value;
-    onInputChange();
-    setUsername(newValue);
+  function handleInput(event: ChangeEvent<HTMLInputElement>) {
+    const inputValue = event.target.value;
     if (hasValidationError) {
-      setValidationErrorMessage(validateGithubUsername(newValue));
+      setValidationErrorMessage(validateGithubUsername(inputValue));
     }
+    setUsername(inputValue);
+    onInputChange();
   }
 
   return (

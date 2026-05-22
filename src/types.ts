@@ -1,4 +1,4 @@
-export interface GitHubUser {
+export type GitHubUser = {
   login: string;
   id: number;
   avatar_url: string;
@@ -9,4 +9,4 @@ export interface GitHubUser {
   public_repos: number;
   followers: number;
   following: number;
-}
+};

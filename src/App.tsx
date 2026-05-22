@@ -1,7 +1,7 @@
-import { useState, useRef } from "react";
+/* import { useState, useRef } from "react";
 import type { GitHubUser } from "./types";
 import { fetchGithubUser } from "./utils/fetch-github-user";
-import { LookupForm } from "./components/LookupForm.";
+import { LookupForm } from "./components/LookupForm";
 import { ProfileCard } from "./components/ProfileCard";
 import "./App.css";
 
@@ -11,7 +11,7 @@ export function App() {
   const [fetchErrorMessage, setFetchErrorMessage] = useState<string | null>(null);
   const [isCardVisible, setIsCardVisible] = useState(false);
   const [srStatus, setSrStatus] = useState("");
-  const srStatusTimeout = useRef<number | null>(null);
+  const srStatusTimeout = useRef<number>(null);
 
   function handleInputChange() {
     setIsCardVisible(false);
@@ -85,6 +85,24 @@ export function App() {
         isCardVisible={isCardVisible}
         onTransitionEnd={handleTransitionEnd}
       />
+    </div>
+  );
+} */
+
+
+import { LookupForm } from "./components/LookupForm";
+import "./App.css";
+
+export function App() {
+  return (
+    <div className="page-layout">
+      <header className="header">
+        <svg className="header__icon icon-lg icon-stroke" aria-hidden="true">
+          <use href="./icons.svg#icon-github" />
+        </svg>
+        <h1 className="header__heading">GitHub Profile Lookup</h1>
+      </header>
+      <LookupForm />
     </div>
   );
 }
