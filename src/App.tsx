@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import type { GitHubUser } from "./types";
-import { fetchGithubUser } from "./utils/fetch-github-user";
+import { fetchGitHubUser } from "./utils/fetch-github-user";
 import { LookupForm } from "./components/LookupForm";
 import { ProfileCard } from "./components/ProfileCard";
 import "./App.css";
@@ -41,7 +41,7 @@ export function App() {
     requestAnimationFrame(() => setIsCardVisible(true));
 
     try {
-      const fetchedData = await fetchGithubUser(username);
+      const fetchedData = await fetchGitHubUser(username);
       localStorage.setItem(`github-user-${username}`, JSON.stringify(fetchedData));
       setUserData(fetchedData);
       setStatus("success");
