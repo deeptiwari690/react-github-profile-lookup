@@ -1,4 +1,5 @@
 import type { GitHubUser } from "../types";
+import "./ProfileCard.css";
 
 type Props = {
   userData: GitHubUser | null;
