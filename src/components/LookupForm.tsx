@@ -1,5 +1,5 @@
 import { useState, type ChangeEvent, type SubmitEvent } from "react";
-import { validateGithubUsername } from "../utils/validate-github-username";
+import { validateGitHubUsername } from "../utils/validate-github-username";
 import "./LookupForm.css";
 
 type Props = {
@@ -14,7 +14,7 @@ export function LookupForm({ onLookup, onInputChange }: Props) {
 
   function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
-    const error = validateGithubUsername(username);
+    const error = validateGitHubUsername(username);
     if (error) {
       setValidationErrorMessage(error);
       setHasValidationError(true);
@@ -27,7 +27,7 @@ export function LookupForm({ onLookup, onInputChange }: Props) {
   function handleInput(event: ChangeEvent<HTMLInputElement>) {
     const inputValue = event.target.value;
     if (hasValidationError) {
-      setValidationErrorMessage(validateGithubUsername(inputValue));
+      setValidationErrorMessage(validateGitHubUsername(inputValue));
     }
     setUsername(inputValue);
     onInputChange();
