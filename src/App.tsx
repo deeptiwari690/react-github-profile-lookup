@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { ZodError } from "zod";
 import type { GitHubUser } from "./types";
 import { fetchGitHubUser } from "./utils/fetch-github-user";
 import { LookupForm } from "./components/LookupForm";
@@ -48,8 +49,11 @@ export function App() {
       setSrAnnouncement(`Profile loaded: ${fetchedData.name || fetchedData.login}`);
       scheduleSrAnnouncementReset();
     } catch (error) {
+      console.log(error);
       if (error instanceof TypeError) {
         setFetchError("Something went wrong. Check your internet connection and try again");
+      } else if (error instanceof ZodError) {
+        setFetchError("Received unexpected data from GitHub. Please try again");
       } else if (error instanceof Error) {
         if (error.message.includes("404")) {
           setFetchError("No GitHub user found with that username");

@@ -1,11 +1,15 @@
-export type GitHubUser = {
-  login: string;
-  avatar_url: string;
-  html_url: string;
-  name: string | null;
-  company: string | null;
-  location: string | null;
-  public_repos: number;
-  followers: number;
-  following: number;
-};
+import { z } from "zod";
+
+export const GitHubUserSchema = z.object({
+  login: z.number(),
+  avatar_url: z.string(),
+  html_url: z.string(),
+  name: z.string().nullable(),
+  company: z.string().nullable(),
+  location: z.string().nullable(),
+  public_repos: z.number(),
+  followers: z.number(),
+  following: z.number(),
+});
+
+export type GitHubUser = z.infer<typeof GitHubUserSchema>;

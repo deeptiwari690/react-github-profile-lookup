@@ -1,4 +1,4 @@
-import type { GitHubUser } from "../types.ts";
+import { GitHubUserSchema, type GitHubUser } from "../types.ts";
 
 export const formatHttpErrorMessage = (status: number, username: string) => `HTTP error ${status} for user ${username}`;
 
@@ -8,6 +8,7 @@ export async function fetchGitHubUser(username: string): Promise<GitHubUser> {
   if (!response.ok) {
     throw new Error(formatHttpErrorMessage(response.status, username));
   }
-  const userData = await response.json();
-  return userData as GitHubUser;
+  const rawUserData = await response.json();
+  const parsedUserData = GitHubUserSchema.parse(rawUserData);
+  return parsedUserData;
 }
