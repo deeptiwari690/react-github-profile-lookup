@@ -26,7 +26,7 @@ export function App() {
   }
 
   async function handleLookup(username: string) {
-    const rawCachedData = localStorage.getItem(`github-user-${username}`);
+    const rawCachedData = localStorage.getItem(`github-user-${username.toLowerCase()}`);
 
     if (rawCachedData) {
       const parsedCachedData = JSON.parse(rawCachedData) as GitHubUser;
@@ -43,7 +43,7 @@ export function App() {
 
     try {
       const fetchedData = await fetchGitHubUser(username);
-      localStorage.setItem(`github-user-${username}`, JSON.stringify(fetchedData));
+      localStorage.setItem(`github-user-${fetchedData.login}`, JSON.stringify(fetchedData));
       setUserData(fetchedData);
       setStatus("success");
       setSrAnnouncement(`Profile loaded: ${fetchedData.name || fetchedData.login}`);
