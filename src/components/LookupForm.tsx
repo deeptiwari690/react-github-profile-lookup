@@ -10,26 +10,26 @@ type Props = {
 export function LookupForm({ onLookup, onInputChange }: Props) {
   const [username, setUsername] = useState("");
   const [validationErrorMessage, setValidationErrorMessage] = useState<string | null>(null);
-  const [hasValidationError, setHasValidationError] = useState(false);
+  const [hasSubmitError, setHasSubmitError] = useState(false);
 
   function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
     const error = validateGitHubUsername(username);
     if (error) {
       setValidationErrorMessage(error);
-      setHasValidationError(true);
+      setHasSubmitError(true);
       return;
     }
-    setHasValidationError(false);
+    setHasSubmitError(false);
     onLookup(username);
   }
 
   function handleInput(event: ChangeEvent<HTMLInputElement>) {
     const inputValue = event.target.value;
-    if (hasValidationError) {
+    setUsername(inputValue);
+    if (hasSubmitError) {
       setValidationErrorMessage(validateGitHubUsername(inputValue));
     }
-    setUsername(inputValue);
     onInputChange();
   }
 
