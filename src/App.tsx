@@ -94,13 +94,15 @@ export function App() {
       <p className="sr-only" role="alert">
         {srAnnouncement}
       </p>
-      <ProfileCard
-        userData={userData}
-        fetchErrorMessage={fetchErrorMessage}
-        status={status}
-        isVisible={isVisible}
-        onTransitionEnd={handleTransitionEnd}
-      />
+      {status !== "idle" && (
+        <ProfileCard
+          userData={userData}
+          fetchErrorMessage={fetchErrorMessage}
+          status={status}
+          isVisible={isVisible}
+          onTransitionEnd={handleTransitionEnd}
+        />
+      )}
     </div>
   );
 }

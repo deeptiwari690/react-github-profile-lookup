@@ -4,7 +4,7 @@ import "./ProfileCard.css";
 type Props = {
   userData: GitHubUser | null;
   fetchErrorMessage: string | null;
-  status: "idle" | "loading" | "success" | "error";
+  status: "loading" | "success" | "error";
   isVisible: boolean;
   onTransitionEnd: () => void;
 };
@@ -110,7 +110,6 @@ function ProfileCardSuccess({ userData }: { userData: GitHubUser }) {
 }
 
 export function ProfileCard({ userData, fetchErrorMessage, status, isVisible, onTransitionEnd }: Props) {
-  if (status === "idle") return null;
   return (
     <div className={`profile-card${isVisible ? " profile-card--visible" : ""}`} onTransitionEnd={onTransitionEnd}>
       {status === "loading" && <ProfileCardLoading />}
