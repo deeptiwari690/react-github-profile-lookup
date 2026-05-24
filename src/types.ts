@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const GitHubUserSchema = z.object({
-  login: z.number(),
+  login: z.string(),
   avatar_url: z.string(),
   html_url: z.string(),
   name: z.string().nullable(),
