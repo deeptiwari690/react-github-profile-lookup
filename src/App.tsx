@@ -14,15 +14,15 @@ export function App() {
   const [srAnnouncement, setSrAnnouncement] = useState("");
   const srAnnouncementTimeoutId = useRef<number>(null);
 
+  function scheduleSrAnnouncementReset() {
+    clearTimeout(srAnnouncementTimeoutId.current ?? undefined);
+    srAnnouncementTimeoutId.current = setTimeout(() => setSrAnnouncement(""), 3000);
+  }
+
   function setFetchError(errorMessage: string) {
     setFetchErrorMessage(errorMessage);
     setSrAnnouncement(errorMessage);
     scheduleSrAnnouncementReset();
-  }
-
-  function scheduleSrAnnouncementReset() {
-    clearTimeout(srAnnouncementTimeoutId.current ?? undefined);
-    srAnnouncementTimeoutId.current = setTimeout(() => setSrAnnouncement(""), 3000);
   }
 
   async function handleLookup(username: string) {
