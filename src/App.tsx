@@ -10,7 +10,7 @@ export function App() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [userData, setUserData] = useState<GitHubUser | null>(null);
   const [fetchErrorMessage, setFetchErrorMessage] = useState<string | null>(null);
-  const [isCardVisible, setIsCardVisible] = useState(false);
+  const [isVisible, setIsCardVisible] = useState(false);
   const [srAnnouncement, setSrAnnouncement] = useState("");
   const srAnnouncementTimeoutId = useRef<number>(null);
 
@@ -76,7 +76,7 @@ export function App() {
   }
 
   function handleTransitionEnd() {
-    if (!isCardVisible) {
+    if (!isVisible) {
       setStatus("idle");
     }
   }
@@ -97,7 +97,7 @@ export function App() {
         userData={userData}
         fetchErrorMessage={fetchErrorMessage}
         status={status}
-        isCardVisible={isCardVisible}
+        isVisible={isVisible}
         onTransitionEnd={handleTransitionEnd}
       />
     </div>
