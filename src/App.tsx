@@ -65,6 +65,8 @@ export function App() {
         } else {
           setFetchError("An unexpected error occurred. Please try again");
         }
+      } else {
+        setFetchError("An unexpected error occurred. Please try again");
       }
       setStatus("error");
     }
