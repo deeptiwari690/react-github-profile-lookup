@@ -26,14 +26,14 @@ export function App() {
   }
 
   async function handleLookup(username: string) {
-    const cached = localStorage.getItem(`github-user-${username}`);
+    const rawCachedData = localStorage.getItem(`github-user-${username}`);
 
-    if (cached) {
-      const cachedData = JSON.parse(cached) as GitHubUser;
-      setUserData(cachedData);
+    if (rawCachedData) {
+      const parsedCachedData = JSON.parse(rawCachedData) as GitHubUser;
+      setUserData(parsedCachedData);
       setStatus("success");
       requestAnimationFrame(() => setIsCardVisible(true));
-      setSrAnnouncement(`Profile loaded: ${cachedData.name || cachedData.login}`);
+      setSrAnnouncement(`Profile loaded: ${parsedCachedData.name || parsedCachedData.login}`);
       scheduleSrAnnouncementReset();
       return;
     }
