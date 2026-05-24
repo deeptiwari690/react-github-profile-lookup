@@ -49,7 +49,6 @@ export function App() {
       setSrAnnouncement(`Profile loaded: ${fetchedData.name || fetchedData.login}`);
       scheduleSrAnnouncementReset();
     } catch (error) {
-      console.log(error);
       if (error instanceof TypeError) {
         setFetchError("Something went wrong. Check your internet connection and try again");
       } else if (error instanceof ZodError) {
