@@ -14,9 +14,9 @@ export function LookupForm({ onLookup, onInputChange }: Props) {
 
   function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
-    const error = validateGitHubUsername(username);
-    if (error) {
-      setValidationErrorMessage(error);
+    const errorMessage = validateGitHubUsername(username);
+    if (errorMessage) {
+      setValidationErrorMessage(errorMessage);
       setHasSubmitError(true);
       return;
     }
