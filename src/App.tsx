@@ -14,9 +14,9 @@ export function App() {
   const [srAnnouncement, setSrAnnouncement] = useState("");
   const srAnnouncementTimeoutId = useRef<number>(null);
 
-  function setFetchError(message: string) {
-    setFetchErrorMessage(message);
-    setSrAnnouncement(message);
+  function setFetchError(errorMessage: string) {
+    setFetchErrorMessage(errorMessage);
+    setSrAnnouncement(errorMessage);
     scheduleSrAnnouncementReset();
   }
 
@@ -55,13 +55,13 @@ export function App() {
       } else if (error instanceof ZodError) {
         setFetchError("Received unexpected data from GitHub. Please try again");
       } else if (error instanceof Error) {
-        if (error.message.includes("404")) {
+        if (error.errorMessage.includes("404")) {
           setFetchError("No GitHub user found with that username");
-        } else if (error.message.includes("403")) {
+        } else if (error.errorMessage.includes("403")) {
           setFetchError("Github rate limit reached. Please wait a moment and try again");
-        } else if (error.message.includes("500")) {
+        } else if (error.errorMessage.includes("500")) {
           setFetchError("Github is experiencing issues. Please try again later");
-        } else if (error.message.includes("503")) {
+        } else if (error.errorMessage.includes("503")) {
           setFetchError("Github is temporarily unavailable. Please try again later");
         } else {
           setFetchError("An unexpected error occurred. Please try again");
